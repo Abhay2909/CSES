@@ -1,1 +1,2 @@
-Contain solutions to the CSES problems solved by me.
+This repo contains the solutions to CSES problems.
+Language used -> C++
