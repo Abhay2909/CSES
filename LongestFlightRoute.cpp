@@ -61,7 +61,7 @@ int32_t main() {
  
 	for (; i < (int) v.size(); i++) {
 		for (int nbr : graph[v[i]]) {
-			if (distance[v[i]] + 1 > distance[nbr]) {
+			if (distance[v[i]] != -1e15 && distance[v[i]] + 1 > distance[nbr]) {
 				parent[nbr] = v[i];
 				distance[nbr] = distance[v[i]] + 1;
 			}
@@ -73,13 +73,9 @@ int32_t main() {
 		cout << "IMPOSSIBLE";
 	} else {
 		int node = n;
-		while (parent[node] != -1 && node != 1) {
+		while (node != 1) {
 			ans.push_back(node);
 			node = parent[node];
-		}
-		if (node != 1) {
-			cout << "IMPOSSIBLE";
-			return 0;
 		}
 		ans.push_back(node);
 		cout << ans.size() << endl;
